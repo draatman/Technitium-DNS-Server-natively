@@ -1,0 +1,43 @@
+Usage:
+
+chmod +x install-tds.sh
+sudo ./install-tds.sh
+
+
+This will:
+
+Download TDS
+
+Install in /opt/technitium-dns
+
+Set up a systemd service that starts on boot
+
+Start the server automatically
+
+Usage:
+
+chmod +x update-tds.sh
+sudo ./update-tds.sh
+
+
+This will:
+
+Stop the running service
+
+Backup your current installation
+
+Download the latest TDS version
+
+Overwrite binaries but keep Data/ and config intact
+
+Restart the service
+
+✅ Notes / Tips
+
+Make sure port 53 is free (UDP/TCP) before running
+
+The web UI is always at http://<server-ip>:5380/
+
+You can add extra upstream DNS servers and blocklists via the web UI
+
+These scripts are reusable — you can run update-tds.sh whenever a new release comes out
