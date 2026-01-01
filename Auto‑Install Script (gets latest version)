@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+echo "📥 Downloading and installing the latest Technitium DNS Server…"
+
+# Official install script (auto gets latest release)
+curl -sSL https://download.technitium.com/dns/install.sh | sudo bash
+
+echo "✅ Installed the latest Technitium DNS Server!"
+echo "📌 The service is enabled and running."
+echo "🔍 Access the web UI at: http://<server-ip>:5380/"
