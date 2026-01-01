@@ -41,3 +41,21 @@ The web UI is always at http://<server-ip>:5380/
 You can add extra upstream DNS servers and blocklists via the web UI
 
 These scripts are reusable — you can run update-tds.sh whenever a new release comes out
+
+How these scripts work
+
+Technitium publishes a generic install script at:
+
+https://download.technitium.com/dns/install.sh
+
+
+Running that script via curl | sudo bash automatically detects the latest official version, pulls its binaries, and installs them for your platform. That’s exactly what these helper scripts wrap. 
+technitium.com
+
+Pro tips
+
+You can run the update script periodically via cron to automatically keep your DNS server up to date.
+
+Your existing configuration and cache stay intact; only the binaries get replaced.
+
+The web UI always stays at http://<server-ip>:5380/.
