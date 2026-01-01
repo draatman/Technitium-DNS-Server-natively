@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+echo "📦 Updating Technitium DNS Server to the latest version…"
+
+# Stop service (if running)
+sudo systemctl stop technitium-dns || true
+
+# Backup current installation
+BACKUP="/opt/technitium-dns-backup-$(date +%F_%H%M%S)"
+echo "📁 Backing up current install to $BACKUP"
+sudo cp -r /opt/technitium-dns "$BACKUP"
+
+# Run official install script (this will overwrite binaries with latest)
+curl -sSL https://download.technitium.com/dns/install.sh | sudo bash
+
+echo "🚀 Update complete!"
+echo "🔁 Restarting service…"
+sudo systemctl restart technitium-dns
+
+echo "🎉 Done! You’re now running the latest version."
